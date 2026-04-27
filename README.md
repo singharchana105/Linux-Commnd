@@ -3,7 +3,7 @@ All Linux command
 
 **Top 50 Linux Commands You Must Know as a Regular User**
 
-ls - The most frequently used command in Linux to list directories
+ls - The most frequently used command in Linux to list directories.
 
 pwd - Print working directory command in Linux.
 
