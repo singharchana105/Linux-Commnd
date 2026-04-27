@@ -1,0 +1,84 @@
+# WHAT IS CRONTAB = Alarm clock for your server 
+
+
+# Step 1. Install Cron in
+
+Ubuntu / Debian:  sudo apt update
+
+Updates package list (basically: "what software versions are available?") : sudo apt install cron
+
+Installs the cron service (the thing that actually runs scheduled jobs)
+
+CentOS/RHEL / Amazon Linux: sudo yum install cronie
+
+Installs cron (just a different name: cronie)
+
+# Step 2: Start & Enable Service
+
+sudo systemctl start cron
+
+Starts cron right now
+
+sudo systemctl enable cron
+
+Makes sure cron starts automatically after reboot
+
+For CentOS:
+
+sudo systemctl start crond
+
+sudo systemctl enable crond
+
+Same thing, just different service name (Linux loves confusing people)
+
+Step 3: Check Status
+
+sudo systemctl status cron
+
+Shows if cron is running, stopped, or silently judging
+
+you
+
+*
+
+Crontab Format (The Star Puzzle
+
+* command
+
+Day of week (0-7)
+
+Month (1-12)
+
+Day of month (1-31)
+
+Hour (0-23)
+
+Minute (0-59)
+
+Example (with meaning)
+
+02*** /home/app/backup.sh
+
+0 minute (exactly at 00)
+
+2 hour (2 AM)
+
+* → every day
+
+* → every month
+
+* → every weekday
+
++
+
+2
+
+Home
+
+My Network
+
+Post
+
+Notifications
+
+Jobs
