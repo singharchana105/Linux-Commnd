@@ -1,63 +1,42 @@
-# WHAT IS CRONTAB = Alarm clock for your server 
+# WHAT IS CRONTAB = Alarm clock for your server. crontab is a time based job scheduler in Linux. 
+It help you to run scripts or commands automatically at given time interval.
+
+# Step 1. Install Cron 
+
+Ubuntu / Debian:  sudo apt update -> [Updates package list (basically: "what software versions are available?") ]
+
+sudo apt install cron -> [Installs the cron service (the thing that actually runs scheduled jobs)]
+
+CentOS/RHEL / Amazon Linux: sudo yum install cronie -> [ Installs cron (just a different name: cronie) ]
 
 
-# Step 1. Install Cron in
 
-Ubuntu / Debian:  sudo apt update
+# Step 2. Start & Enable Service
 
-Updates package list (basically: "what software versions are available?") : sudo apt install cron
+sudo systemctl start cron -> Starts cron right now
 
-Installs the cron service (the thing that actually runs scheduled jobs)
+sudo systemctl enable cron -> Makes sure cron starts automatically after reboot
 
-CentOS/RHEL / Amazon Linux: sudo yum install cronie
+For CentOS / RHEL / Amazon Linux
 
-Installs cron (just a different name: cronie)
+sudo systemctl start crond -> start cron
 
-# Step 2: Start & Enable Service
+sudo systemctl enable crond -> starts automatically after reboot
 
-sudo systemctl start cron
 
-Starts cron right now
 
-sudo systemctl enable cron
+# Step 3. Check Status
 
-Makes sure cron starts automatically after reboot
+sudo systemctl status cron -> Shows if cron is running, stopped, or silently judging you
 
-For CentOS:
+# Step 4. Crontab Format (The Star Puzzle *)
 
-sudo systemctl start crond
+*  Minute (0-59)    * Hour (0-23)    * Day of month (1-31)    * Month (1-12)   * Day of week (0-7)     
 
-sudo systemctl enable crond
 
-Same thing, just different service name (Linux loves confusing people)
+# Step 5. Example (with meaning)
 
-Step 3: Check Status
-
-sudo systemctl status cron
-
-Shows if cron is running, stopped, or silently judging
-
-you
-
-*
-
-Crontab Format (The Star Puzzle
-
-* command
-
-Day of week (0-7)
-
-Month (1-12)
-
-Day of month (1-31)
-
-Hour (0-23)
-
-Minute (0-59)
-
-Example (with meaning)
-
-02*** /home/app/backup.sh
+0 2 * * * /home/app/backup.sh
 
 0 minute (exactly at 00)
 
@@ -69,13 +48,6 @@ Example (with meaning)
 
 * → every weekday
 
-+
-
-2
-
-Home
-
-My Network
 
 Post
 
