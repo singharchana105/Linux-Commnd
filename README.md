@@ -105,6 +105,62 @@ passwd - Create or update passwords for existing users
 
 
 
+# WHAT IS CRONTAB = Alarm clock for your server. crontab is a time based job scheduler in Linux. 
+It help you to run scripts or commands automatically at given time interval.
+
+# Step 1. Install Cron 
+
+Ubuntu / Debian:  sudo apt update -> [Updates package list (basically: "what software versions are available?") ]
+
+sudo apt install cron -> [Installs the cron service (the thing that actually runs scheduled jobs)]
+
+CentOS/RHEL / Amazon Linux: sudo yum install cronie -> [ Installs cron (just a different name: cronie) ]
+
+
+
+# Step 2. Start & Enable Service
+
+sudo systemctl start cron -> Starts cron right now
+
+sudo systemctl enable cron -> Makes sure cron starts automatically after reboot
+
+For CentOS / RHEL / Amazon Linux
+
+sudo systemctl start crond -> start cron
+
+sudo systemctl enable crond -> starts automatically after reboot
+
+
+
+# Step 3. Check Status
+
+sudo systemctl status cron -> Shows if cron is running, stopped, or silently judging you
+
+# Step 4. Crontab Format (The Star Puzzle *)
+
+*  Minute (0-59)    * Hour (0-23)    * Day of month (1-31)    * Month (1-12)   * Day of week (0-7)     
+
+
+# Step 5. Example (with meaning)
+
+0 2 * * * /home/app/backup.sh
+
+0 minute (exactly at 00)
+
+2 hour (2 AM)
+
+* → every day
+
+* → every month
+
+* → every weekday
+
+
+
+
+
+
+
 
 
 
